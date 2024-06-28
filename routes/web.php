@@ -99,10 +99,15 @@ Route::prefix('/superadmin')->namespace('App\Http\Controllers\Admin')->group(fun
 
 Route::namespace('App\Http\Controllers\Front')->group(function () {
     Route::get('/', 'IndexController@index');
-    //Listing Categories
-    $caturl = Category::select('url')->where('status', 1)->get()->pluck('url')->toArray();
-    //dd($caturl);
-    foreach ($caturl as $key => $url) {
-        Route::get('/'.$url, 'ProductController@listing');
+
+    // Listing Categories
+    try {
+        $caturl = Category::select('url')->where('status', 1)->get()->pluck('url')->toArray();
+        // dd($caturl);
+        foreach ($caturl as $key => $url) {
+            Route::get('/'.$url, 'ProductController@listing');
+        }
+    } catch (\Exception $e) {
+        dd($e->getMessage());
     }
 });

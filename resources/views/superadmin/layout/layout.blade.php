@@ -28,6 +28,7 @@
   <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
   @yield('style')
 </head>
+<<<<<<< HEAD
 <body>
   <div class="container-scroller">
     <!-- partial:partials/_navbar.html -->
@@ -40,6 +41,20 @@
      @include('superadmin.layout.sidebar')
       <!-- partial -->
      @yield('content')
+=======
+
+<body>
+  <div class="container-scroller">
+    <!-- partial:partials/_navbar.html -->
+    @include('superadmin.layout.header')
+    <!-- partial -->
+    <div class="container-fluid page-body-wrapper">
+      <!-- partial -->
+      <!-- partial:partials/_sidebar.html -->
+      @include('superadmin.layout.sidebar')
+      <!-- partial -->
+      @yield('content')
+>>>>>>> origin/main
       <!-- main-panel ends -->
     </div>
     <!-- page-body-wrapper ends -->
@@ -54,7 +69,10 @@
   <script src="{{ asset('admin/vendors/datatables.net/jquery.dataTables.js') }}"></script>
   <script src="{{ asset('admin/vendors/datatables.net-bs4/dataTables.bootstrap4.js') }}"></script>
   <script src="{{ asset('admin/js/dataTables.select.min.js') }}"></script>
+<<<<<<< HEAD
 
+=======
+>>>>>>> origin/main
   <!-- End plugin js for this page -->
   <!-- inject:js -->
   <script src="{{ asset('admin/js/off-canvas.js') }}"></script>
@@ -66,12 +84,19 @@
   <!-- Custom js for this page-->
   <script src="{{ asset('admin/js/dashboard.js') }}"></script>
   <script src="{{ asset('admin/js/Chart.roundedBarCharts.js') }}"></script>
+<<<<<<< HEAD
 
   {{-- custom js --}}
+=======
+  <!-- custom js -->
+>>>>>>> origin/main
   <script src="{{ asset('admin/js/custom.js') }}"></script>
   <!-- End custom js for this page-->
   @yield('script')
 </body>
 
 </html>
+<<<<<<< HEAD
 
+=======
+>>>>>>> origin/main

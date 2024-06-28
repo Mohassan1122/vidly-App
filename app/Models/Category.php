@@ -9,6 +9,19 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 class Category extends Model
 {
     use HasFactory;
+    protected $fillable = [
+        'parent_id',
+        'section_id',
+        'category_name',
+        'category_image',
+        'category_discount',
+        'description',
+        'url',
+        'meta_title',
+        'meta_description',
+        'meta_keyword',
+        'status',
+    ];
 
     public function section()
     {
@@ -31,8 +44,7 @@ class Category extends Model
         $catIds = array();
         $catIds[] = $categoryDetails['id'];
         if ($categoryDetails['parent_id'] == 0) {
-
-            $breadcrumbs = '<li class="is-marked">  <a href="' . url($categoryDetails['url']) . '">' . $categoryDetails['category_name'] . '</a> </li>';
+            $breadcrumbs = '<li class="is-marked"><a href="' . url($categoryDetails['url']) . '">' . $categoryDetails['category_name'] . '</a> </li>';
         } else {
             $parentCategory = Category::select('category_name', 'url')->where('id', $categoryDetails['parent_id'])->first()->toArray();
 

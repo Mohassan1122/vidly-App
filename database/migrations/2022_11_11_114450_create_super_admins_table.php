@@ -17,13 +17,12 @@ return new class extends Migration
             $table->id();
             $table->string('name');
             $table->string('type');
-            $table->integer('admin_id');
+            $table->unsignedBigInteger('admin_id');
             $table->string('mobile');
-            $table->integer('admin_id');
             $table->string('email')->unique();
             $table->string('password');
-            $table->string('image');
-            $table->tinyInteger('status');
+            $table->string('image')->nullable();
+            $table->boolean('status')->default(1);
             $table->timestamps();
         });
     }

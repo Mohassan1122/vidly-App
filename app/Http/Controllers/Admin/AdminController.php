@@ -27,6 +27,7 @@ class AdminController extends Controller
     public function login(Request $request)
     {
 
+        // echo "<pre>"; print_r(bcrypt('daddy1122')); die();
         if ($request->isMethod('post')) {
             $data = $request->all();
             $request->validate([
@@ -142,7 +143,6 @@ class AdminController extends Controller
                 }
                 $country = Country::where('id', $data['company_country'])->value("name");
                 $state = State::where('id', $data['company_state'])->value("name");
-              
                 // update in superAdmin table
                 SuperAdmin::where('id',  Auth::guard('superadmin')->user()->id)->update(['name' => $data['company_name'], 'mobile' => $data['company_mobile'], 'image' => $imageName]);
 
@@ -158,7 +158,7 @@ class AdminController extends Controller
 
             if ($request->isMethod('post')) {
                 $data = $request->all();
-            //echo "<pre>"; print_r($data); die();
+                //echo "<pre>"; print_r($data); die();
                 $request->validate([
                     'company_name' => 'required|regex:/^[\pL\s\-]+$/u',
                     'company_mobile' => 'required|numeric',
@@ -209,7 +209,6 @@ class AdminController extends Controller
             //echo "<pre>"; print_r($data); die();
             $data['states'] = State::where('country_id', $data['country_id'])->get(["name", "id"]);
             return response()->json($data);
-           
         }
     }
     public function admins($type = null)
